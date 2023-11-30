@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{%block title%}
+  My Blog
+{%endblock%}
+
+{%block css_file%}
+  <link rel="stylesheet" href="{%static "blog/post.css"%}">
+  <link rel="stylesheet" href="{%static "blog/index.css"%}">
+{%endblock%}
+
+{%block content%}
+
+  <section id="welcome">
+    <header>
+      <img src="{%static "blog/images/daisy.webp"%}" alt="The Author of this Blog">
+      <h2>DAISY'S BLOG</h2>
+    </header>
+    <p>Hi My names Daisy and I love to SING!!</p>
+  </section>
+
+  <section id="latest-posts">
+    <h2>What I did Lately</h2>
+
+    <ul>
+      {%for post in posts%}
+        {%include "blog/includes/post.html"%}
+      {%endfor%}
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>What I do</h2>
+    <p>
+      I'm a sophomore at Korea University studying Computer Science
+    </p>
+    <p>
+      I'm not sure what to do at the moment
+    </p>
+  </section>
+{%endblock%}
